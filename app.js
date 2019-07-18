@@ -1,5 +1,6 @@
 const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
+const colors = document.getElementsByClassName("jsColor");
 
 // canvas element 는 두개의 사이즈를 가지고 와야한다. css와 현재 화면에 그려있는!
 canvas.width = 700;
@@ -39,10 +40,11 @@ function onMouseMove(event) {
     }
 }
 
-// 마우스가 컨버스 위에서 클릭
-function onMouseDown(event) {
-    console.log(event);
-    painting = true;
+function handleColorClick(event) {
+    // console.log(event.target.style)
+    const color = event.target.style.backgroundColor; // 클릭한 컬러의 백그라운드 속성만 가져오기
+    // console.log(color);
+    ctx.strokeStyle = color;
 }
 
 // canvas가 존재하는지 확인 & canvas 안 마우스 움직임 감지
@@ -52,3 +54,8 @@ if(canvas) {
     canvas.addEventListener("mouseup", stoppainting);
     canvas.addEventListener("mouseleave", stoppainting);
 }
+
+// console.log(Array.from(colors)); // Array.from => object로부터 array를 만든다
+Array.from(colors).forEach(color => 
+    color.addEventListener("click", handleColorClick)
+);
