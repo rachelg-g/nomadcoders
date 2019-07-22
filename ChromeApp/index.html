@@ -3,19 +3,40 @@
 
 <head>
     <title>Something</title>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
-    <div class="js-clock">
-        <h1>00:00</h1>
+    <div class="wrap">
+        <div class="top-row">
+            <div class="top-right">
+                <span class="js-weather"></span>
+            </div>
+        </div>
+        <div class="center">
+            <div class="js-clock clock">
+                <h1 class="time">00:00</h1>
+            </div>
+            <form class="js-form form intro">
+                <label class="title">Hello, what's your name?</label>
+                <input type="text" class="input" />
+            </form>
+            <h4 class="js-greetings greetings"></h4>
+            <form action="" class="js-toDoForm todo-form">
+                <h3 class="title">What is your main focus for today?</h3>
+                <input type="text" class="input" />
+            </form>
+            <ul class="js-toDoList">
+            </ul>
+        </div>
     </div>
-    <form class="js-form form">
-        <input type="text" placeholder="What is your name?" />
-    </form>
-    <h4 class="js-greetings greetings"></h4>
+    
     <script src="clock.js"></script>
     <script src="gretting.js"></script>
+    <script src="todo.js"></script>
+    <script src="bg.js"></script>
+    <script src="weather.js"></script>
 </body>
 
 </html>

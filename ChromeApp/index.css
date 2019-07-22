@@ -1,6 +1,117 @@
+body, input, select, textarea, button {
+  font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 body {
-  background-color: #ecf0f1;
-  color: #34495e;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+  color: #fff;
+  text-shadow: 0 1px 5px rgba(0,0,0,.1);
+}
+
+body, input, textarea {
+  margin: 0;
+  font-size: 100%;
+  /* color: #fff; */
+}
+
+.wrap {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.top-row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 20px;
+}
+
+.top-right {
+  flex: 1 1 auto;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: right;
+}
+
+.center, .center-below {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  font-size: 80%;
+  text-align: center;
+  transform: translate(-50%,-50%);
+}
+
+.title {
+  display: block;
+  margin: 0;
+  font-size: 337.5%;
+  font-weight: 400;
+}
+
+.input {
+  display: inline-block!important;
+  width: 20px;
+  min-width: 514px;
+  height: 100%;
+  margin: 0 auto;
+  background: 0;
+  border: 0;
+  border-bottom: 3px solid #fff;
+  font-size: 337.5%;
+  color: #fff;
+  font-weight: 500;
+  line-height: normal;
+  overflow: hidden;
+  outline: 0;
+}
+
+.form,
+.greetings {
+  display: none;
+}
+
+/* clock */
+.clock {
+  text-align: center;
+}
+
+.clock .time {
+  display: inline-block;
+  margin: 0;
+  font-size: 1050%;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: -5px;
+}
+
+/* intro */
+.intro .input {
+  padding-top: 15px;
+}
+
+
+/* todo form */
+.todo-form {
+  margin-top: 40px;
+}
+
+.todo-form .title {
+  font-size: 2.1875rem;
+  font-weight: 300;
 }
 
 .btn {
@@ -11,11 +122,37 @@ body {
   color: #7f8c8d;
 }
 
-.form,
 .greetings {
-  display: none;
+  font-size: 337.5%;
+  font-weight: 500;
+  user-select: none;
+  text-align: center;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
 }
 
 .showing {
   display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  animation: fainIn 0.5s linear;
 }
