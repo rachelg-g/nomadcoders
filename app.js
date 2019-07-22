@@ -6,7 +6,7 @@ const mode = document.getElementById("jsMode");
 
 // canvas element 는 두개의 사이즈를 가지고 와야한다. css와 현재 화면에 그려있는!
 canvas.width = 700;
-canvas.width = 700;
+canvas.height = 700;
 
 ctx.strokeStyle = "#2c2c2c";
 ctx.lineWidth = 2.5;
