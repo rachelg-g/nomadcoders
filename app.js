@@ -4,11 +4,15 @@ const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 
-// canvas element 는 두개의 사이즈를 가지고 와야한다. css와 현재 화면에 그려있는!
-canvas.width = 700;
-canvas.height = 700;
+const INITIAL_COLOR = "#2c2c2c";
+const CANVAS_SIZE = 700;
 
-ctx.strokeStyle = "#2c2c2c";
+// canvas element 는 두개의 사이즈를 가지고 와야한다. css와 현재 화면에 그려있는!
+canvas.width = CANVAS_SIZE;
+canvas.height = CANVAS_SIZE;
+
+ctx.strokeStyle = INITIAL_COLOR;
+ctx.fillStyle = INITIAL_COLOR;
 ctx.lineWidth = 2.5;
 
 let painting = false;
@@ -48,6 +52,7 @@ function handleColorClick(event) {
     const color = event.target.style.backgroundColor; // 클릭한 컬러의 백그라운드 속성만 가져오기
     // console.log(color);
     ctx.strokeStyle = color;
+    ctx.fillStyle = color;
 }
 
 function handleRangeChange(event) {
@@ -66,12 +71,19 @@ function handleModeClick() {
     }
 }
 
+function handleCanvasClick() {
+    if (filling) {
+        ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    }
+}
+
 // canvas가 존재하는지 확인 & canvas 안 마우스 움직임 감지
 if(canvas) {
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startpainting);
     canvas.addEventListener("mouseup", stoppainting);
     canvas.addEventListener("mouseleave", stoppainting);
+    canvas.addEventListener("click", handleCanvasClick);
 }
 
 // console.log(Array.from(colors)); // Array.from => object로부터 array를 만든다
