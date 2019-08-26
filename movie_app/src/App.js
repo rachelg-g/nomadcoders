@@ -11,10 +11,13 @@ class App extends Component {
   state = {
 
   }
-  
+
   // componentDidMount: 컴포넌트가 mount되면 5초 기다리고 greeting을 업데이트 함
   componentDidMount(){
-    fetch('https://yts.lt/api/v2/list_movies.json?sort_by=rating')
+    fetch('https://yts.lt/api/v2/list_movies.json?sort_by=like_count')
+    .then(potato => potato.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err))
   }
 
   _renderMovies = () => {
