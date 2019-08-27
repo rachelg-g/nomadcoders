@@ -36,7 +36,7 @@ function MoviePoster({poster, alt, title}){
 
 function MovieGenres({genres}){
     return (
-        <span className="Movie__Genres">{genres} </span>
+        <span className="Movie__Genre">{genres} </span>
     )
 }
 
